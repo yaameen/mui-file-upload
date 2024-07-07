@@ -16,6 +16,7 @@ export const SingleFileUpload = <Response = string,>(props: SingleFileUploadProp
     body = <FileDropzoneInputBody />,
     sx,
     disabled,
+    wrapper = 'form',
   } = props;
   const { rejectedFiles, addRejected, removeRejected } = useRejectedFileManager();
 
@@ -49,6 +50,7 @@ export const SingleFileUpload = <Response = string,>(props: SingleFileUploadProp
       >
         <Box flexGrow={1}>
           <FileDropzone
+            wrapper={wrapper}
             disabled={disabled}
             sx={sx?.sx}
             allowsMultiple={false}

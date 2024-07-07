@@ -37,6 +37,8 @@ export interface FileDropzoneProps {
   onFilesRejected: (files: File[]) => void;
   /** Whether the FileDropzone is disabled or not. Default: false */
   disabled?: boolean;
+  /** The wrapper component that wraps the FileDropzone. Default: form */
+  wrapper?: any;
 }
 
 const defaultSx: SxProps<Theme> = {
@@ -104,6 +106,7 @@ export const FileDropzone: React.FC<PropsWithChildren<FileDropzoneProps>> = ({
   onFilesRejected,
   disabled = false,
   children,
+  wrapper,
 }: PropsWithChildren<FileDropzoneProps>) => {
   const [state, setState] = useState<FileDropzoneState>(defaultFileDropzoneState(disabled));
 
@@ -215,7 +218,7 @@ export const FileDropzone: React.FC<PropsWithChildren<FileDropzoneProps>> = ({
 
   return (
     <Box
-      component='form'
+      component={wrapper}
       onDragEnter={handleDrag}
       onSubmit={(e) => {
         e.preventDefault();

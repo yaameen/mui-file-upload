@@ -19,6 +19,8 @@ export interface BaseFileUploadProps<Response = string> {
   sx?: FileUploadSx;
   /** Whether the FileDropzone is disabled or not. Default: false */
   disabled?: boolean;
+  /** The wrapper component that wraps the FileDropzone. Default: form */
+  wrapper?: HTMLElement;
 }
 
 interface FileUploadSx {
